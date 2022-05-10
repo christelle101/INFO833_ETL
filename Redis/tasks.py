@@ -72,7 +72,7 @@ class T3:
         return self.data
 
         
-class Taches:
+class Tasks:
 
     def __init__(self):
         pass

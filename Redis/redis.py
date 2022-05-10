@@ -1,4 +1,4 @@
-import redis, taches, string, random
+import redis, tasks, string, random
 
 r = redis.Redis(host='localhost', port=6379, db=0, charset="utf-8")
 r.delete("task_queue")
@@ -19,7 +19,7 @@ while (r.llen("task_queue") > 0):
     r.delete(hash)
     params = {k.decode("utf-8"): v.decode("utf-8") for k, v in params.items()}
     
-    taskObject = getattr(taches, taskName)(params)
+    taskObject = getattr(tasks, taskName)(params)
     taskObject.extract()
     data = taskObject.load()
     
