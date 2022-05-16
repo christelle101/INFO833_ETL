@@ -72,10 +72,9 @@ class T3:
         return self.data
 
         
-class Tasks:
-
-    def __init__(self):
-        pass
+class Tasks():
+    T1='a'
+       
     
     def T1(params):
         return T1(params)

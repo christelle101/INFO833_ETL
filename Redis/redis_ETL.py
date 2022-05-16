@@ -18,8 +18,8 @@ while (r.llen("task_queue") > 0):
     params = r.hgetall(hash)
     r.delete(hash)
     params = {k.decode("utf-8"): v.decode("utf-8") for k, v in params.items()}
-    
-    taskObject = getattr(tasks, taskName)(params)
+    print(params["path"])
+    taskObject = getattr(tasks.Tasks, taskName.strip())(params)
     taskObject.extract()
     data = taskObject.load()
     
