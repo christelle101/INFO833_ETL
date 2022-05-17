@@ -70,17 +70,3 @@ class T3:
     def load(self):
         print ("Task T3 loading...")
         return self.data
-
-        
-class Tasks():
-    T1='a'
-       
-    
-    def T1(params):
-        return T1(params)
-    
-    def T2(params):
-        return T2(params)
-
-    def T3(params):
-        return T3(params)

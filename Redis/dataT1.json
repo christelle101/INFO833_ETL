@@ -1,6 +1,6 @@
 {
     "task": "T3",
     "params": {
-        "path": "data.json"
+        "path": "sources.json"
     }
 }

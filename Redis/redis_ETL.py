@@ -1,4 +1,4 @@
-import tasks, string, random, redis
+import tasks, redis, string, random
 
 r = redis.Redis(host='localhost', port=6379, db=0, charset="utf-8")
 r.delete("task_queue")
@@ -6,10 +6,11 @@ r.delete("task_queue")
 def random_hash():
     return "".join(random.choice(string.ascii_uppercase + string.digits) for _ in range(16))
 
-params = {"path" : "dataT1.json"}
+
+params = {"path": "dataT1.json"}
 hash = random_hash()
 r.hset(hash, mapping = params)
-r.rpush("task_queue", f"T1 : {hash}")
+r.rpush("task_queue", f"T1:{hash}")
 
 while (r.llen("task_queue") > 0):
     task = (r.lpop("task_queue")).decode("utf-8")
@@ -18,15 +19,15 @@ while (r.llen("task_queue") > 0):
     params = r.hgetall(hash)
     r.delete(hash)
     params = {k.decode("utf-8"): v.decode("utf-8") for k, v in params.items()}
-    print(params["path"])
-    taskObject = getattr(tasks.Tasks, taskName.strip())(params)
+    
+    taskObject = getattr(tasks, taskName)(params)
     taskObject.extract()
     data = taskObject.load()
     
     if ("task" in data):
         hash = random_hash()
         params = data["params"] or {}
-        r.hset(hash, mapping=params)
+        r.hset(hash, mapping = params)
         r.rpush("task_queue", data["task"] + ":" + hash)
     else:
         print(data)
