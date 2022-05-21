@@ -1,5 +1,9 @@
 # INFO833 | Extract - Transform - Load
 
+*Christelle Randriamahefa*
+*- Alaaeddine Besbes*
+*- Anas El Abdelalaoui*
+
 
 Un ETL est un logiciel permettant d'intégrer des grands volumes de données de différents types, en provenance de différentes sources. Il extrait les données brutes, les restructure et enfin les charge dans un Data Warehouse. Ces opérations sont réalisées en temps réel et permettent d'enrichir les données et de prendre en charge des milliards de transactions.
 
