@@ -25,6 +25,6 @@ Dans cette partie, on tente d'appliquer le multiprocessing à notre ETL.
 Cette conception est implémentée dans le fichier **multiprocessing_ETL.py**.
 
 ## 🧶 Un ETL avec MapReduce
-L'objectif est ici de combiner MapReduce et l'aspect pubsub de Redis. Ce procédé est tout d'abord appliqué sur [Killer Queen du groupe Queen](https://raw.githubusercontent.com/christelle101/INFO833_ETL/main/MapReduce/tst.txt?token=GHSAT0AAAAAABROFS3BDP66ZKIUA2IXSN7QYUIAFCQ) pour tester, puis sur un plus gros fichier : [les sonnets de Shakespeare](https://raw.githubusercontent.com/christelle101/INFO833_ETL/main/MapReduce/t8.shakespeare.txt?token=GHSAT0AAAAAABROFS3AYLLUP7DPBEWPJPJOYUIAF6A).
+L'objectif est ici de combiner MapReduce et l'aspect pubsub de Redis. Ce procédé est tout d'abord appliqué sur un petit fichier (des paroles de chanson) pour tester, puis sur un plus gros fichier (tous les sonnets de Shakespeare).
 
 L'objectif était d'écrire un fichier JSON avec les occurrences de chaque mot. Toutefois, nous ne sommes pas encore parvenus à réaliser cela à cause d'une erreur qui doit être présente dans le code. Pour le moment, nous avons le fichier **dumbp.rdb** qui a été généré par Redis.
